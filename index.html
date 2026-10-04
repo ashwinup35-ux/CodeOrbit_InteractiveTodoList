@@ -1,0 +1,166 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A modern interactive to-do list app with localStorage persistence.">
+    <title>FocusFlow — To-Do List</title>
+
+    <!-- Link the external CSS file -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="app-shell">
+        <section class="todo-card" aria-labelledby="app-title">
+
+            <!-- App heading -->
+            <header class="app-header">
+                <div>
+                    <p class="eyebrow">PERSONAL PRODUCTIVITY</p>
+
+                    <h1 id="app-title">
+                        Focus<span>Flow</span>
+                    </h1>
+
+                    <p class="subtitle">
+                        Turn small tasks into meaningful progress.
+                    </p>
+                </div>
+
+                <div class="date-badge" id="currentDate"></div>
+            </header>
+
+
+            <!-- Task statistics -->
+            <section class="stats" aria-label="Task statistics">
+
+                <div class="stat-card">
+                    <span class="stat-number" id="totalCount">0</span>
+                    <span class="stat-label">Total</span>
+                </div>
+
+                <div class="stat-card">
+                    <span class="stat-number" id="activeCount">0</span>
+                    <span class="stat-label">Active</span>
+                </div>
+
+                <div class="stat-card">
+                    <span class="stat-number" id="completedCount">0</span>
+                    <span class="stat-label">Completed</span>
+                </div>
+
+            </section>
+
+
+            <!-- Add task form -->
+            <form class="task-form" id="taskForm">
+
+                <label class="sr-only" for="taskInput">
+                    Enter a new task
+                </label>
+
+                <input
+                    type="text"
+                    id="taskInput"
+                    placeholder="What needs to be done?"
+                    maxlength="120"
+                    autocomplete="off"
+                    required
+                >
+
+                <button type="submit" class="add-btn">
+                    <span class="plus-icon">+</span>
+                    Add Task
+                </button>
+
+            </form>
+
+
+            <!-- Task filters -->
+            <div class="toolbar">
+
+                <div class="filters" role="group" aria-label="Filter tasks">
+
+                    <button
+                        type="button"
+                        class="filter-btn active"
+                        data-filter="all"
+                    >
+                        All
+                    </button>
+
+                    <button
+                        type="button"
+                        class="filter-btn"
+                        data-filter="active"
+                    >
+                        Active
+                    </button>
+
+                    <button
+                        type="button"
+                        class="filter-btn"
+                        data-filter="completed"
+                    >
+                        Completed
+                    </button>
+
+                </div>
+
+                <button
+                    type="button"
+                    class="clear-btn"
+                    id="clearCompleted"
+                >
+                    Clear completed
+                </button>
+
+            </div>
+
+
+            <!-- JavaScript dynamically inserts tasks here -->
+            <ul class="task-list" id="taskList" aria-live="polite"></ul>
+
+
+            <!-- Displayed when there are no matching tasks -->
+            <div class="empty-state" id="emptyState">
+
+                <div class="empty-icon">✓</div>
+
+                <h2 id="emptyTitle">
+                    Your list is clear
+                </h2>
+
+                <p id="emptyMessage">
+                    Add your first task and start making progress.
+                </p>
+
+            </div>
+
+
+            <!-- Footer -->
+            <footer class="app-footer">
+
+                <span>
+                    <span class="dot"></span>
+                    Saved automatically
+                </span>
+
+                <span id="taskSummary">
+                    0 tasks
+                </span>
+
+            </footer>
+
+        </section>
+    </main>
+
+
+    <!-- Link the external JavaScript file -->
+    <script src="script.js"></script>
+
+</body>
+</html>
